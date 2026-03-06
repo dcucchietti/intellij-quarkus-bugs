@@ -16,14 +16,14 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/feature")
 public class FeatureController {
 
-    @CheckedTemplate
+    @CheckedTemplate(basePath = "feature")
     public static class Templates {
         public static native TemplateInstance page(String title);
     }
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance page() {
+    public TemplateInstance inde() {
         return Templates.page("Nested Layout Bug Reproduction");
     }
 }

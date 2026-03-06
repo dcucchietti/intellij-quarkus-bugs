@@ -1,20 +1,17 @@
 {!
     This template is BOTH a layout consumer (includes _main-layout)
-    AND a layout provider (defines {#insert body} for child templates).
+    AND a layout provider (defines {#insert /} for child templates).
 
     The Qute language server raises a false positive warning on the
     closing {/include} tag below.
 
     See: https://github.com/redhat-developer/intellij-quarkus/issues/1557
 !}
-{#include _main-layout}
-    {#title}Feature Section{/title}
-    {#content}
-        <div class="feature-layout">
-            <nav>Feature Navigation</nav>
-            <section>
-                {#insert body}Default feature body{/insert}
-            </section>
-        </div>
-    {/content}
+{#include _main-layout title='Feature Section'}
+    <div class="feature-layout">
+        <nav>Feature Navigation</nav>
+        <section>
+            {#insert /}
+        </section>
+    </div>
 {/include}
