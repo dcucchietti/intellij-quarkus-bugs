@@ -1,4 +1,4 @@
-package com.example;
+package com.example.extension;
 
 import io.quarkus.qute.TemplateExtension;
 

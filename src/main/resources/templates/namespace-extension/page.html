@@ -1,0 +1,21 @@
+{#include feature/_layout}
+    <h2>Namespace Extension Bug</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each user in users}
+                <tr>
+                    <td>{user.name}</td>
+                    <!-- BUG: IntelliJ reports InvalidMethodParameter here -->
+                    <!-- "The method text(Set<RoleType>) is not applicable for the arguments (Set<RoleType>)" -->
+                    <td>{role:text(user.roles)}</td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+{/include}
