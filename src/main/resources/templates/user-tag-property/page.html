@@ -1,0 +1,17 @@
+{#include _main-layout title='User Tag Property Bug'}
+    <h2>User Tag Property Bug</h2>
+    {#each entry in model.permissions}
+        <div>
+            <strong>{entry.name}</strong>
+
+            {#permissionDialog
+                title = entry.name
+                selectedCode = entry.code
+            }
+                {#trigger}
+                    <button type="button">Edit</button>
+                {/trigger}
+            {/permissionDialog}
+        </div>
+    {/each}
+{/include}
