@@ -1,0 +1,11 @@
+{#include _main-layout title='Cross-Module Component Bug'}
+    <h2>Cross-Module Component Bug</h2>
+    <p>Issue: <a href="https://github.com/redhat-developer/intellij-quarkus/issues/1574">#1574</a></p>
+    <p>The <code>\{#noResult}</code> component below is defined in the <code>shared-ui</code> module.</p>
+    <p>It works at runtime via web-bundler classpath scanning, but IntelliJ reports
+       <strong>"No section helper found for `noResult`"</strong> (UndefinedSectionTag).</p>
+
+    {! BUG: IntelliJ reports "No section helper found for `noResult`" because
+       the component HTML is in a dependency JAR (shared-ui), not in this module !}
+    {#noResult title="No results found" description="Try adjusting your search criteria" /}
+{/include}
