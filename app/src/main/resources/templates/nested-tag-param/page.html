@@ -1,0 +1,18 @@
+{#include _main-layout title='UndefinedParameter in nested user tag'}
+    <h2>UndefinedParameter in nested user tag call</h2>
+    <p>
+        In shared-ui, "formDialog" calls "baseDialog" passing "extDialogId".
+        IntelliJ reports: "No parameter 'extDialogId' found for 'baseDialog' user tag. (UndefinedParameter)"
+    </p>
+
+    {#formDialog
+        title = "My Dialog"
+        isOpen = false
+        extDialogId = "dialog-1"
+    }
+        {#trigger}
+            <button type="button">Open</button>
+        {/trigger}
+        <input type="text" name="name" placeholder="Enter name" />
+    {/formDialog}
+{/include}
