@@ -1,0 +1,19 @@
+{#include feature/_layout}
+    <h2>Feature Flag + @TemplateEnum Bug</h2>
+
+    {! BUG: IntelliJ reports InvalidMethodParameter here:
+       "The method enabled(String) in the type null is not applicable
+        for the arguments (FeatureFlag). qute (InvalidMethodParameter)"
+
+       At runtime this works fine — FeatureFlag.toString() returns the
+       flag key string, and the flag:enabled() NamespaceResolver evaluates
+       it correctly.
+    !}
+    {#if flag:enabled(FeatureFlag:ALPHA)}
+        <p>Alpha feature is enabled!</p>
+    {/if}
+
+    {#if flag:enabled(FeatureFlag:BETA)}
+        <p>Beta feature is enabled!</p>
+    {/if}
+{/include}

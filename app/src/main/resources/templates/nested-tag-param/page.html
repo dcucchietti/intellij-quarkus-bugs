@@ -5,10 +5,14 @@
         IntelliJ reports: "No parameter 'extDialogId' found for 'baseDialog' user tag. (UndefinedParameter)"
     </p>
 
+    {! Disabled: Qute 3.32 parser cannot handle nested named sections inside user tags.
+       The {#trigger}...{/trigger} block inside {#formDialog} causes a parse error.
+       Keeping this file for the IntelliJ-only bug (UndefinedParameter false positive).
+
     {#formDialog
-        title = "My Dialog"
-        isOpen = false
-        extDialogId = "dialog-1"
+        title="My Dialog"
+        isOpen=false
+        extDialogId="dialog-1"
     }
         {#trigger}
             <button type="button">Open</button>
@@ -17,4 +21,5 @@
             <input type="text" name="name" placeholder="Enter name" />
         </label>
     {/formDialog}
+    !}
 {/include}
