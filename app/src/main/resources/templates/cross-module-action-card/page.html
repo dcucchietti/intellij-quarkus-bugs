@@ -1,0 +1,10 @@
+{#include _main-layout title='Cross-Module actionCard Bug'}
+    <h2>Cross-Module actionCard Component</h2>
+    <p>The <code>\{#actionCard}</code> component is defined in <code>shared-ui</code> module.</p>
+    <p>IntelliJ reports:
+       <strong>"No section helper found for `actionCard`"</strong> (UndefinedSectionTag).</p>
+
+    {! BUG: IntelliJ reports "No section helper found for `actionCard`" because
+       the Qute plugin cannot resolve user tags from dependency modules !}
+    {#actionCard title="Something went wrong?" buttonLabel="Open ticket" buttonUrl="#" /}
+{/include}
