@@ -1,0 +1,12 @@
+{#include _main-layout title='@TemplateGlobal in User Tag Bug'}
+    <h2>@TemplateGlobal Variable in User Tag</h2>
+    <p>The <code>\{#orderSummary}</code> user tag uses <code>date_pattern</code> which is provided
+       by a <code>@TemplateGlobal</code> class, not passed as a parameter.</p>
+    <p>It works at runtime because @TemplateGlobal variables are available in all templates,
+       but IntelliJ reports <strong>"Missing required parameter(s) `date_pattern` of `orderSummary` user tag"</strong>
+       (MissingRequiredParameter).</p>
+
+    {! BUG: IntelliJ reports "Missing required parameter(s) `date_pattern` of `orderSummary` user tag"
+       because the Qute plugin does not recognize that date_pattern is provided via @TemplateGlobal !}
+    {#orderSummary title="Order Summary" summary="Some order details" _unisolated /}
+{/include}

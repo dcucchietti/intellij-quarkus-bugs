@@ -1,6 +1,7 @@
 package com.example.extension;
 
 import io.quarkus.qute.TemplateExtension;
+import io.quarkus.qute.TemplateGlobal;
 
 /**
  * Qute template extension demonstrating the false "unused" warning
@@ -18,5 +19,10 @@ public class GlobalExtension {
             return value;
         }
         return value.substring(0, maxLength) + "…";
+    }
+
+    @TemplateGlobal(name = "date_pattern")
+    public static String getDatePattern() {
+        return "yyyy-MM-dd";
     }
 }
